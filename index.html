@@ -45,6 +45,17 @@
       border-radius: 4px;
     }
 
+  .text-center{
+        animation: animation-2 5s ease-in 0.2s infinite ;
+}
+@keyframes animation-2 {
+   0%{color: rgb(37, 23, 192);}
+   25%{color: rgb(12, 102, 141);}
+   50%{color: rgb(98, 77, 122);}
+   75%{color: rgb(88, 193, 227);}
+   100%{color: rgb(125, 123, 237);}
+}
+    
     .volume-control {
       text-align: center;
       margin-top: 10px;
@@ -80,7 +91,7 @@
     </div>
 
 
-    <audio id="background-music" autoplay loop>
+    <audio id="background-music" autoplay loop controls>
         <source src="m.mp3" type="audio/mpeg">
       </audio>
     
