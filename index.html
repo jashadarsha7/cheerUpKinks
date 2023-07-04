@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheer Up Kinks</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: linear-gradient(135deg, rgb(178, 215, 68), rgb(30, 174, 187));
+    }
+
+    .image-container {
+      display: block;
+      position: relative;
+      width: 100%;
+      max-width: 1000px; /* Adjust the maximum width as per your preference */
+      margin: 0 auto;
+      max-height: 1000px;
+    }
+
+    .image {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    .image.active {
+      display: block;
+    }
+
+    #navigation {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .navigation-button {
+      padding: 8px 16px;
+      margin: 0 5px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #5fc5d7;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .volume-control {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-center"><marquee>CHEEEER UP TIYAAAAAA</marquee></h1>
+  <div class="container">
+    <p>The Greatest ornament of a person is their smile. It can be the most beautiful and the most dangerous thing in the world. Probably yours is the one which can even make the moon feel complexion and force the mountain to melt. Global warming might be because of that precious smile.</p>
+    <p>Please don't let it fade away, dear.</p>
+
+    <div class="image-container">
+      <img src="b (1).png" alt="Image 1" class="image active">
+      <img src="a.jpeg" alt="Image 2" class="image">
+      <img src="b (4).jpeg" alt="Image 3" class="image">
+      <img src="d (1).png" alt="Image 4" class="image">
+      <img src="b (2).png" alt="Image 5" class="image">
+      <img src="c (2).jpg" alt="Image 6" class="image">
+      <img src="a (2).jpeg" alt="Image 7" class="image">
+      <img src="d (2).png" alt="Image 8" class="image">
+      <img src="a (4).jpeg" alt="Image 9" class="image">
+      <img src="b (3).png" alt="Image 10" class="image">
+      <img src="a (5).jpeg" alt="Image 11" class="image">
+      <img src="c (1).jpg" alt="Image 12" class="image">
+      <img src="d (3).png" alt="Image 13" class="image">
+      <img src="a (3).jpeg" alt="Image 14" class="image">
+    </div>
+
+    <div id="navigation">
+      <button id="prev-button" class="navigation-button">Previous</button>
+      <button id="next-button" class="navigation-button">Next</button>
+    </div>
+
+
+    <audio id="background-music" autoplay loop>
+        <source src="m.mp3" type="audio/mpeg">
+      </audio>
+    
+    <div class="volume-control">
+      <label for="volume-range">Volume:</label>
+      <input type="range" id="volume-range" min="0" max="1" step="0.1" value="1" onchange="setVolume(this.value)">
+    </div>
+  </div>
+
+  <!-- Include Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const images = $('.image');
+      let currentIndex = 0;
+
+      images.eq(0).addClass('active');
+
+      $('#prev-button').click(function () {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showImage(currentIndex);
+      });
+
+      $('#next-button').click(function () {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      });
+
+      function showImage(index) {
+        images.removeClass('active');
+        images.eq(index).addClass('active');
+      }
+
+      setInterval(function () {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      }, 3000);
+    });
+
+    function setVolume(volume) {
+      var audio = document.getElementById('background-music');
+      audio.volume = volume;
+    }
+  </script>
+</body>
+</html>
